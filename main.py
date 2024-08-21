@@ -32,7 +32,7 @@ def analisar_texto(texto: str) -> dict:
     # Tamanho médio das palavras
     tamanho_medio_palavras = sum(len(palavra) for palavra in palavras) / len(palavras) if palavras else 0
     
-    # Resultado final
+    # Resultado final 
     resultado = {
         "contagem_palavras_unicas": contagem_palavras_unicas,
         "frequencia_palavras": frequencia_palavras,
