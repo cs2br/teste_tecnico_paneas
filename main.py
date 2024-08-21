@@ -41,7 +41,7 @@ def analisar_texto(texto: str) -> dict:
         "tamanho_medio_palavras": tamanho_medio_palavras
     }
     
-    return resultado
+    return resultado 
 
 # Testes para verificar a implementação
 def testes():
