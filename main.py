@@ -14,8 +14,7 @@ def analisar_texto(texto: str) -> dict:
         return {
             "contagem_palavras_unicas": 0,
             "frequencia_palavras": {},
-            "palavra_mais_frequente": None,
-            "max_ocorrencias_palavra_mais_frequente": 0,
+            "palavra_mais_frequente": (None, 0),
             "tamanho_medio_palavras": 0
         }
     
@@ -24,10 +23,11 @@ def analisar_texto(texto: str) -> dict:
     contagem_palavras_unicas = len(palavras_unicas)
     
     # Frequência de cada palavra
-    frequencia_palavras = Counter(palavras)
+    frequencia_palavras = dict(Counter(palavras)) 
     
     # Palavra mais frequente
-    palavra_mais_frequente, max_ocorrencias = frequencia_palavras.most_common(1)[0] if frequencia_palavras else (None, 0)
+    counter = Counter(palavras)
+    palavra_mais_frequente, max_ocorrencias = counter.most_common(1)[0] if frequencia_palavras else (None, 0)
     
     # Tamanho médio das palavras
     tamanho_medio_palavras = sum(len(palavra) for palavra in palavras) / len(palavras) if palavras else 0
@@ -36,8 +36,7 @@ def analisar_texto(texto: str) -> dict:
     resultado = {
         "contagem_palavras_unicas": contagem_palavras_unicas,
         "frequencia_palavras": frequencia_palavras,
-        "palavra_mais_frequente": palavra_mais_frequente,
-        "max_ocorrencias_palavra_mais_frequente": max_ocorrencias,
+        "palavra_mais_frequente": (palavra_mais_frequente, max_ocorrencias),
         "tamanho_medio_palavras": tamanho_medio_palavras
     }
     
@@ -49,7 +48,7 @@ def testes():
     resultado1 = analisar_texto(texto1)
     print(resultado1)
 
-    texto2 = "Python é incrível. python é fácil de aprender, e PYTHON é poderoso."
+    texto2 = "Análise de dados é crucial! dados de análise são importantes; análise é essencial para entender os dados. Dados bem analisados ajudam a criar estratégias eficazes"
     resultado2 = analisar_texto(texto2)
     print(resultado2)
 
