@@ -1,4 +1,4 @@
-import string
+import string 
 from collections import Counter
 
 def analisar_texto(texto: str) -> dict:
